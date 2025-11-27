@@ -6,7 +6,7 @@
 /*   By: jose-an2 <jose-an2@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 20:40:26 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/11/25 23:32:45 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/11/27 23:41:42 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 //functions declarations
 
 //libc functions
+int		count_w(const char *s, char sep);//DONE
 int		ft_isalpha(char c);//DONE
 int		ft_isdigit(char c);//DONE
 int		ft_isalnum(char c);//DONE
@@ -63,15 +64,15 @@ typedef struct s_list
 	struct s_list *next;
 }	t_list;
 
-t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);//DONE
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),
-		void (*del)(void *));
-int		ft_lstsize(t_list *lst);
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void    ft_lstadd_front(t_list **lst, t_list *new);
-t_list	*ft_lstnew(void *content);
+		void (*del)(void *));//DONE
+int		ft_lstsize(t_list *lst);//DONE
+void	ft_lstiter(t_list *lst, void (*f)(void *));//DONE
+void	ft_lstdelone(t_list *lst, void (*del)(void *));//DONE
+void	ft_lstclear(t_list **lst, void (*del)(void *));//DONE
+void	ft_lstadd_back(t_list **lst, t_list *new);//DONE
+void    ft_lstadd_front(t_list **lst, t_list *new);//DONE
+t_list	*ft_lstnew(void *content);//DONE
 
 #endif
