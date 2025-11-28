@@ -6,11 +6,11 @@
 /*   By: jose-an2 <jose-an2@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 18:34:48 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/11/28 00:10:31 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:27:43 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
 void	sorted_duplicate_check(t_stacks *s, int i)
 {
@@ -73,21 +73,47 @@ int	ft_atol(const char *str, t_stacks *s)
 	res = 0;
 	sign = 1;
 	i = 0;
-	while (n[i] == ' ' || (n[i] >= '\t' && n[i] <= '\r'))
+	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
 		i++;
-	if ((n[i] == '+' || n[i] == '-'))
+	if ((str[i] == '+' || str[i] == '-'))
 	{
-		if (n[i] == '-')
+		if (str[i] == '-')
 			sign = -1;
 		i++;
 	}
-	while (n[i])
+	while (str[i])
 	{
-		if (res > 2147483647 || (res * sign) < -2147483648 || ft_strlen(n) > 11)
+		if (res > 2147483647 || (res * sign) < -2147483648 || ft_strlen(str) > 11)
 			ft_exit_free(s, "Error\n");
-		if (!(n[i] >= '0' && n[i] <= '9'))
+		if (!(str[i] >= '0' && str[i] <= '9'))
 			ft_exit_free(s, "Error\n");
-		res = res * 10 + (n[i++] - '0');
+		res = res * 10 + (str[i++] - '0');
 	}
 	return ((int)(res * sign));
+}
+
+void	index_nums(t_stacks *s)
+{
+	int		i;
+	int		j;
+	int		minor;
+	int		*tmp_a;
+
+	tmp_a = malloc(s->a_size * sizeof * tmp_a);
+	if (tmp_a == NULL)
+		ft_exit_free(s, "Error\n");
+	i = -1;
+	while (++i < s->a_size)
+	{
+		minor = 0;
+		j = -1;
+		while (++j < s->a_size)
+			if (s->a[i] > s->a[j])
+				minor++;
+		tmp_a[i] = minor;
+	}
+	i = s->a_size;
+	while (i--)
+		s->a[i] = tmp_a[i];
+	free(tmp_a);
 }

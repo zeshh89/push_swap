@@ -6,13 +6,13 @@
 /*   By: jose-an2 <jose-an2@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 18:34:33 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/11/28 00:17:51 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:28:18 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
-static void	check_args(int argc, char **argv)
+void	check_args(int argc, char **argv)
 {
 	int	i;
 	int	j;
@@ -24,16 +24,16 @@ static void	check_args(int argc, char **argv)
 	{
 		j = 0;
 		if (!argv[i][0] || (argv[i][0] && argv[i][0] == ' '))
-			ft_exit_free(NULL, "Invalid Argument\n");
+			ft_exit_free(NULL, "Error\n");
 		while (argv[i][j] != '\0')
 		{
 			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' '
 				&& argv[i][j] != '-' && argv[i][j] != '+')
-				ft_exit_free(NULL, "Invalid Argument\n");
+				ft_exit_free(NULL, "Error\n");
 			if ((argv[i][j] == '-' || argv[i][j] == '+') &&
 				(argv[i][j + 1] == ' ' || argv[i][j + 1] == '\0' ||
 				argv[i][j + 1] == '+' || argv[i][j + 1] == '-'))
-				ft_exit_free(NULL, "Invalid Argument\n");
+				ft_exit_free(NULL, "Error\n");
 			j++;
 		}
 	}
@@ -116,10 +116,11 @@ int	main(int argc, char **argv)
 	if (s == NULL)
 		exit(1);
 	combine_args(argc, argv, s);
-	create_stacks(argc, argv, s);
+	create_stacks(s);
 	fill_numbers(s);
 	sorted_duplicate_check(s, 0);
-	print_stack_a(s->a);
+	index_nums(s);
+	print_stack_a(s);
 	ft_exit_free(s,"");
 	return (0);
 }

@@ -6,14 +6,14 @@
 /*   By: jose-an2 <jose-an2@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 22:45:53 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/11/28 00:47:25 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:28:40 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
+# include "libft.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -34,5 +34,7 @@ void	create_stacks(t_stacks *s);
 void	combine_args(int argc, char **argv, t_stacks *s);
 int		is_sort(t_stacks *s);
 void	fill_numbers(t_stacks *s);
+int		ft_atol(const char *str, t_stacks *s);
+void    index_nums(t_stacks *s);
 
 #endif

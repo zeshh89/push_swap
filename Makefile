@@ -6,44 +6,54 @@
 #    By: jose-an2 <jose-an2@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/28 00:21:48 by jose-an2          #+#    #+#              #
-#    Updated: 2025/11/28 00:23:20 by jose-an2         ###   ########.fr        #
+#    Updated: 2025/11/28 00:50:29 by jose-an2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# -----------------------
+# Variables
+# -----------------------
 NAME = push_swap
-CC = cc 
-CFLAGS = -Wall -Wextra -Werror -g 
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -g -I./inc -I./libft
+
 LIBFT_DIR = libft
-LIBFT = ../libft/libft.a
+LIBFT = ./libft/libft.a
 RM = rm -rf
-SRCS = utils.c move.c sorting.c main.c
-SRC	= $( ../src/,$(SRCS))
+
+SRCS = utils.c sorting.c main.c
+SRC = $(addprefix ./src/,$(SRCS))
 OBJ = $(SRC:.c=.o)
 
-all: $(LIBFT) $(NAME) 
-	@echo "Done!"
-	@echo "To test the program, run 'make test' or 'make test size=10'"
-	@echo "for example for testing 10 random numbers"
-	@echo "./push_swap 1 2 3 4 5 6 7 8 9 10"
+# -----------------------
+# Targets
+# -----------------------
+all: $(LIBFT) $(NAME)
 
+# Compilar libft
 $(LIBFT):
 	@make -s -C $(LIBFT_DIR)
 
-$(NAME): $(LIBFT) $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -L./$(LIBFT_DIR) -lft
+# Compilar el ejecutable
+$(NAME): $(OBJ) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -L./$(LIBFT_DIR) -lft
 
-$(OBJ): $(SRC)
-	@$(CC) $(CFLAGS) -c $? -I./$(LIBFT_DIR)
-	@mv *.o src
+# Regla de patrón para compilar .c a .o
+./src/%.o: ./src/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-clean:	
-	@$(RM) src/*.o
+# Limpiar objetos
+clean:
+	$(RM) ./src/*.o
 	@make -s -C $(LIBFT_DIR) clean
 
-fclean:	clean
-	@$(RM) $(NAME)
+# Limpiar todo
+fclean: clean
+	$(RM) $(NAME)
 	@make -s -C $(LIBFT_DIR) fclean
 
-re:	fclean all clean
+# Recompilar todo
+re: fclean all
 
-.PHONY: all clean fclean test re
+.PHONY: all clean fclean re
+

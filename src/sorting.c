@@ -6,11 +6,11 @@
 /*   By: jose-an2 <jose-an2@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 23:34:30 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/11/27 23:35:14 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/11/28 00:51:08 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/libft.h"
+#include "push_swap.h"
 
 int	is_sort(t_stacks *s)
 {
