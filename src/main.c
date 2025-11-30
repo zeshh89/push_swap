@@ -6,7 +6,7 @@
 /*   By: jose-an2 <jose-an2@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 18:34:33 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/11/30 17:26:33 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/11/30 20:41:10 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,28 +85,6 @@ void	combine_args(int argc, char **argv, t_stacks *s)
 		free(tmp);
 }
 
-#include <stdio.h>
-
-static void print_stack_a(t_stacks *s)//testeando el parseo
-{
-    int i;
-
-    if (!s || !s->a)
-    {
-        printf("Stack A está vacío o estructura nula.\n");
-        return;
-    }
-
-    printf("Stack A (size = %d): ", s->a_size);
-    for (i = 0; i < s->a_size; i++)
-    {
-        printf("%d", s->a[i]);
-        if (i < s->a_size - 1)
-            printf(" "); 
-    }
-    printf("\n");
-}
-
 int	main(int argc, char **argv)
 {
 	t_stacks	*s;
@@ -120,12 +98,15 @@ int	main(int argc, char **argv)
 	fill_numbers(s);
 	sorted_duplicate_check(s, 0);
 	index_nums(s);
-	print_stack_a(s);
-	if (s->a_size == 3)
+	if (s->a_size == 2 && s->a[0] > s->a[1])
+		swap("sa", s->a, s->a_size);
+	else if (s->a_size == 3)
 		sort_three(s);
-	if (s->a_size > 3 && s->a_size < 6)
+	else if (s->a_size >= 4 && s->a_size <= 5)
 		sort_fourfive(s);
-	print_stack_a(s);
-	ft_exit_free(s,"");
+	else
+		radix_sort(s);
+	sorted_duplicate_check(s, 1);
+	ft_exit_free(s, "Error\n");
 	return (0);
 }

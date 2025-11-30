@@ -6,7 +6,7 @@
 /*   By: jose-an2 <jose-an2@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 18:34:48 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/11/28 16:27:43 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/11/30 22:56:31 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,11 @@ int	ft_atol(const char *str, t_stacks *s)
 	}
 	while (str[i])
 	{
-		if (res > 2147483647 || (res * sign) < -2147483648 || ft_strlen(str) > 11)
-			ft_exit_free(s, "Error\n");
 		if (!(str[i] >= '0' && str[i] <= '9'))
 			ft_exit_free(s, "Error\n");
 		res = res * 10 + (str[i++] - '0');
+		if (res > 2147483647 || (res * sign) < -2147483648)
+			ft_exit_free(s, "Error\n");
 	}
 	return ((int)(res * sign));
 }

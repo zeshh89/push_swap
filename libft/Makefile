@@ -6,7 +6,7 @@
 #    By: jose-an2 <jose-an2@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/29 22:10:46 by jose-an2          #+#    #+#              #
-#    Updated: 2025/11/25 23:32:30 by jose-an2         ###   ########.fr        #
+#    Updated: 2025/11/30 20:40:13 by jose-an2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,15 +47,6 @@ SRC_FILES   = ft_isalpha.c \
 			  ft_putstr_fd.c \
 			  ft_putendl_fd.c \
 			  ft_putnbr_fd.c \
-			  ft_lstlast.c \
-			  ft_lstmap.c \
-			  ft_lstsize.c \
-			  ft_lstiter.c \
-			  ft_lstdelone.c \
-			  ft_lstclear.c \
-			  ft_lstadd_back.c \
-			  ft_lstnew.c \
-			  ft_lstadd_front.c \
 			
 OBJS         = $(SRC_FILES:.c=.o)
 INC         = libft.h

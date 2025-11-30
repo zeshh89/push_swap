@@ -6,7 +6,7 @@
 /*   By: jose-an2 <jose-an2@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 20:40:26 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/11/27 23:41:42 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/11/30 20:33:42 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_putstr_fd(char *s, int fd);//DONE
 void	ft_putendl_fd(char *s, int fd);//DONE
 void	ft_putnbr_fd(int n, int fd);//DONE
 //BONUS FUNCTIONS
-typedef struct s_list
+/*typedef struct s_list
 {
 	void *content;
 	struct s_list *next;
@@ -74,5 +74,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));//DONE
 void	ft_lstadd_back(t_list **lst, t_list *new);//DONE
 void    ft_lstadd_front(t_list **lst, t_list *new);//DONE
 t_list	*ft_lstnew(void *content);//DONE
-
+*/
 #endif
