@@ -6,7 +6,7 @@
 /*   By: jose-an2 <jose-an2@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 23:34:30 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/11/28 00:51:08 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/11/30 18:01:09 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,28 @@ void	sort_three(t_stacks *s)
 	}
 	if (s->a[0] > s->a[1])
 		swap("sa", s->a, s->a_size);
+}
+
+void	sort_fourfive(t_stacks *s)
+{
+	while (s->b_size <= 1)
+	{
+		if (s->a[0] == 0 || s->a[0] == 1)
+			push("pb", s);
+		else
+			rotate(s->a, s->a_size, "up", "a");
+	}
+	if (s->b[0] == 0)
+		swap("sb", s->b, s->b_size);
+	if (s->a[2] != 4)
+	{
+		if (s->a[0] == 4)
+			rotate(s->a, s->a_size, "up", "a");
+		else
+			rotate(s->a, s->a_size, "down", "a");
+	}
+	if (s->a[0] > s->a[1])
+		swap("sa", s->a, s->a_size);
+	push("pa", s);
+	push("pa", s);
 }

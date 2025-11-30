@@ -6,7 +6,7 @@
 /*   By: jose-an2 <jose-an2@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 18:34:33 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/11/28 16:28:18 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/11/30 17:26:33 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,8 @@ int	main(int argc, char **argv)
 	print_stack_a(s);
 	if (s->a_size == 3)
 		sort_three(s);
+	if (s->a_size > 3 && s->a_size < 6)
+		sort_fourfive(s);
 	print_stack_a(s);
 	ft_exit_free(s,"");
 	return (0);

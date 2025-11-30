@@ -6,7 +6,7 @@
 /*   By: jose-an2 <jose-an2@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 16:42:34 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/11/28 19:52:21 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/11/30 17:45:34 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,26 +51,26 @@ void	push(char *str, t_stacks *s)
 {
 	int	tmp;
 
-	if (ft_strncmp(str, "pa", 3) == 0)
+	if (!ft_strncmp(str, "pa", 3))
 	{
 		if (s->b_size <= 0)
 			return ;
 		tmp = s->b[0];
+		ft_memmove(s->b, s->b + 1, sizeof(int) * (s->b_size - 1));
+		s->b_size--;
 		ft_memmove(s->a + 1, s->a, sizeof(int) * s->a_size);
 		s->a[0] = tmp;
-		s->b_size--;
-		ft_memmove(s->b, s->b + 1, sizeof(int) * s->b_size);
 		s->a_size++;
 	}
-	else if (ft_strncmp(str, "pb", 3) == 0)
+	else if (!ft_strncmp(str, "pb", 3))
 	{
 		if (s->a_size <= 0)
 			return ;
 		tmp = s->a[0];
+		ft_memmove(s->a, s->a + 1, sizeof(int) * (s->a_size - 1));
+		s->a_size--;
 		ft_memmove(s->b + 1, s->b, sizeof(int) * s->b_size);
 		s->b[0] = tmp;
-		s->a_size--;
-		ft_memmove(s->a, s->a + 1, sizeof(int) * s->a_size);
 		s->b_size++;
 	}
 	ft_putendl_fd(str, 1);

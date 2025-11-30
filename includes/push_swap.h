@@ -6,7 +6,7 @@
 /*   By: jose-an2 <jose-an2@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 22:45:53 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/11/28 00:47:25 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/11/30 17:24:14 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ void    index_nums(t_stacks *s);
 void    push(char *str, t_stacks *s);
 void    swap(char *str, int *array, int size);
 void    sort_three(t_stacks *s);
-
+void    sort_fourfive(t_stacks *s);
 
 #endif
