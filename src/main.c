@@ -121,6 +121,9 @@ int	main(int argc, char **argv)
 	sorted_duplicate_check(s, 0);
 	index_nums(s);
 	print_stack_a(s);
+	if (s->a_size == 3)
+		sort_three(s);
+	print_stack_a(s);
 	ft_exit_free(s,"");
 	return (0);
 }

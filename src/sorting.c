@@ -25,3 +25,16 @@ int	is_sort(t_stacks *s)
 	}
 	return (1);
 }
+
+void	sort_three(t_stacks *s)
+{
+	if (s->a[2] != 2)
+	{
+		if (s->a[0] == 2)
+			rotate(s->a, s->a_size, "up", "a");
+		else
+			rotate(s->a, s->a_size, "down", "a");
+	}
+	if (s->a[0] > s->a[1])
+		swap("sa", s->a, s->a_size);
+}

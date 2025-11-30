@@ -34,5 +34,12 @@ void	create_stacks(t_stacks *s);
 void	combine_args(int argc, char **argv, t_stacks *s);
 int		is_sort(t_stacks *s);
 void	fill_numbers(t_stacks *s);
+void    rotate(int *array, int size, char *direction, char *list);
+int     ft_atol(const char *str, t_stacks *s);
+void    index_nums(t_stacks *s);
+void    push(char *str, t_stacks *s);
+void    swap(char *str, int *array, int size);
+void    sort_three(t_stacks *s);
+
 
 #endif

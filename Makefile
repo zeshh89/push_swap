@@ -15,13 +15,13 @@
 # -----------------------
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g -I./inc -I./libft
+CFLAGS = -Wall -Wextra -Werror -g -I./includes -I./libft
 
 LIBFT_DIR = libft
 LIBFT = ./libft/libft.a
 RM = rm -rf
 
-SRCS = utils.c sorting.c main.c
+SRCS = utils.c sorting.c main.c orders.c
 SRC = $(addprefix ./src/,$(SRCS))
 OBJ = $(SRC:.c=.o)
 
