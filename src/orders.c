@@ -6,7 +6,7 @@
 /*   By: jose-an2 <jose-an2@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 16:42:34 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/11/30 17:45:34 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/11/30 18:16:27 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	swap(char *str, int *array, int size)
 {
 	int	tmp;
 
-	if (size <= 2)
+	if (size < 2)
 		return ;
 	tmp = array[0];
 	array[0] = array[1];
@@ -46,7 +46,7 @@ void	rotate(int *array, int size, char *direction, char *list)
 	}
 	ft_putendl_fd(list, 1);
 }
-
+/*
 void	push(char *str, t_stacks *s)
 {
 	int	tmp;
@@ -72,6 +72,43 @@ void	push(char *str, t_stacks *s)
 		ft_memmove(s->b + 1, s->b, sizeof(int) * s->b_size);
 		s->b[0] = tmp;
 		s->b_size++;
+	}
+	ft_putendl_fd(str, 1);
+}*/
+
+void push(char *str, t_stacks *s)
+{
+	int tmp;
+
+	if (!ft_strncmp(str, "pa", 3))
+	{
+		if (s->b_size <= 0)
+			return;
+		tmp = s->b[0];
+        // Desplaza B hacia arriba: b[1..b_size-1] -> b[0..b_size-2]
+		if (s->b_size > 1)
+			ft_memmove(s->b, s->b + 1, (s->b_size - 1) * sizeof(int));
+		s->b_size--;
+        // Desplaza A hacia abajo: a[0..a_size-1] -> a[1..a_size]
+		if (s->a_size > 0)
+			ft_memmove(s->a + 1, s->a, s->a_size * sizeof(int));
+		s->a[0] = tmp;
+		s->a_size++;
+	}
+	else if (!ft_strncmp(str, "pb", 3))
+	{
+		if (s->a_size <= 0)
+			return;
+		tmp = s->a[0];
+        // Desplaza A hacia arriba: a[1..a_size-1] -> a[0..a_size-2]
+		if (s->a_size > 1)
+			ft_memmove(s->a, s->a + 1, (s->a_size - 1) * sizeof(int));
+		s->a_size--;
+        // Desplaza B hacia abajo: b[0..b_size-1] -> b[1..b_size]
+		if (s->b_size > 0)
+			ft_memmove(s->b + 1, s->b, s->b_size * sizeof(int));
+		s->b[0] = tmp;
+		s->b_size++;	
 	}
 	ft_putendl_fd(str, 1);
 }

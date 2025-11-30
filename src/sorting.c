@@ -6,7 +6,7 @@
 /*   By: jose-an2 <jose-an2@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 23:34:30 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/11/30 18:01:09 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/11/30 18:17:45 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	sort_three(t_stacks *s)
 
 void	sort_fourfive(t_stacks *s)
 {
-	while (s->b_size <= 1)
+	while (s->b_size < 2)
 	{
 		if (s->a[0] == 0 || s->a[0] == 1)
 			push("pb", s);
